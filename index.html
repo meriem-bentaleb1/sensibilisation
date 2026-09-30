@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,20 @@
 
     <style>
 
+        /* =====================================
+           RESET
+        ===================================== */
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
+
+        /* =====================================
+           PAGE
+        ===================================== */
 
         html,
         body {
@@ -29,7 +39,6 @@
                 sans-serif;
 
             background-image: url("./datacentre.jpg");
-
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -38,7 +47,7 @@
 
 
         /* =====================================
-           PAGE
+           CONTENEUR PRINCIPAL
         ===================================== */
 
         .page {
@@ -48,25 +57,26 @@
             align-items: center;
             justify-content: center;
 
-            padding: 15px;
+            padding: 20px;
         }
 
 
         /* =====================================
-           CARTE BLANCHE
+           CARTE DE CONNEXION
         ===================================== */
 
         .login-box {
             width: 400px;
+            max-width: 100%;
 
             background: rgba(255, 255, 255, 0.98);
 
-            border-radius: 8px;
+            border-radius: 10px;
 
-            padding: 18px 20px 20px;
+            padding: 22px 26px 26px;
 
             box-shadow:
-                0 5px 25px rgba(0, 0, 0, 0.16);
+                0 8px 30px rgba(0, 0, 0, 0.18);
         }
 
 
@@ -75,7 +85,8 @@
         ===================================== */
 
         .logo {
-            height: 180px;
+            width: 100%;
+            height: 150px;
 
             display: flex;
             align-items: center;
@@ -83,30 +94,32 @@
 
             border-bottom: 1px solid #dedede;
 
-            margin-bottom: 28px;
+            margin-bottom: 25px;
         }
 
         .acs-logo {
             display: block;
 
-            width: 205px;
-            height: auto;
+            width: 190px;
+            height: 115px;
 
             object-fit: contain;
+
+            object-position: center;
         }
 
 
         /* =====================================
-           FORM GROUP
+           FORMULAIRE
         ===================================== */
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
 
         /* =====================================
-           LABEL + CHOOSE USER
+           LABEL
         ===================================== */
 
         .field-header {
@@ -115,13 +128,13 @@
             align-items: center;
             justify-content: space-between;
 
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .field-header label {
             color: #171717;
 
-            font-size: 19px;
+            font-size: 18px;
 
             font-weight: 400;
         }
@@ -129,7 +142,7 @@
         .choose-user {
             color: #6515d5;
 
-            font-size: 16px;
+            font-size: 15px;
 
             text-decoration: none;
 
@@ -147,8 +160,7 @@
 
         .form-group input {
             width: 100%;
-
-            height: 50px;
+            height: 52px;
 
             padding: 0 16px;
 
@@ -160,7 +172,7 @@
 
             color: #333333;
 
-            font-size: 18px;
+            font-size: 17px;
 
             outline: none;
 
@@ -182,15 +194,14 @@
 
 
         /* =====================================
-           BOUTON LOG IN
+           BOUTON LOGIN
         ===================================== */
 
         .login-button {
             width: 100%;
-
             height: 50px;
 
-            margin-top: 16px;
+            margin-top: 3px;
 
             border: none;
 
@@ -200,7 +211,7 @@
 
             color: #ffffff;
 
-            font-size: 19px;
+            font-size: 18px;
 
             font-weight: 500;
 
@@ -234,7 +245,7 @@
 
             color: #777777;
 
-            font-size: 16px;
+            font-size: 15px;
         }
 
 
@@ -244,8 +255,7 @@
 
         .azure-button {
             width: 100%;
-
-            height: 55px;
+            height: 52px;
 
             border: 1px solid #d9d9d9;
 
@@ -262,7 +272,7 @@
 
             color: #202020;
 
-            font-size: 18px;
+            font-size: 17px;
 
             cursor: pointer;
 
@@ -277,46 +287,58 @@
         .azure-icon {
             color: #a064ed;
 
-            font-size: 22px;
+            font-size: 21px;
 
             font-weight: bold;
         }
 
 
         /* =====================================
-           MOBILE
+           RESPONSIVE MOBILE
         ===================================== */
 
         @media (max-width: 500px) {
 
             .page {
-                padding: 10px;
+                padding: 12px;
             }
 
             .login-box {
                 width: 100%;
 
-                padding: 15px 18px 18px;
+                padding: 20px;
             }
 
             .logo {
-                height: 155px;
+                height: 135px;
 
-                margin-bottom: 25px;
+                margin-bottom: 22px;
             }
 
             .acs-logo {
-                width: 180px;
+                width: 175px;
+                height: 105px;
             }
 
             .field-header label {
-                font-size: 18px;
+                font-size: 17px;
             }
 
             .choose-user {
                 font-size: 14px;
             }
 
+            .form-group input {
+                height: 50px;
+            }
+
+            .login-button {
+                height: 50px;
+            }
+
+            .azure-button {
+                height: 50px;
+            }
         }
 
     </style>
@@ -331,7 +353,7 @@
 
 
             <!-- =================================
-                 LOGO ACS
+                 LOGO ATLAS CLOUD SERVICES
             ================================== -->
 
             <div class="logo">
@@ -372,6 +394,7 @@
 
                     </div>
 
+
                     <input
                         type="email"
                         id="email"
@@ -395,6 +418,7 @@
                         </label>
 
                     </div>
+
 
                     <input
                         type="password"
@@ -430,7 +454,7 @@
 
 
             <!-- =================================
-                 AZURE
+                 MICROSOFT AZURE
             ================================== -->
 
             <button
@@ -455,6 +479,10 @@
     </div>
 
 
+    <!-- =====================================
+         JAVASCRIPT
+    ===================================== -->
+
     <script>
 
         /*
@@ -464,8 +492,14 @@
          * ou enregistrée.
          */
 
+
+        /* FORMULAIRE LOGIN */
+
         const loginForm =
             document.getElementById("loginForm");
+
+
+        /* BOUTON AZURE */
 
         const azureButton =
             document.getElementById("azureButton");
@@ -505,4 +539,5 @@
     </script>
 
 </body>
+
 </html>
