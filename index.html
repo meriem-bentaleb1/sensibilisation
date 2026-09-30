@@ -7,6 +7,7 @@
     <title>Atlas Cloud Services</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,8 +28,7 @@
                 Helvetica,
                 sans-serif;
 
-            background-image:
-                url("./datacentre.jpg");
+            background-image: url("./datacentre.jpg");
 
             background-size: cover;
             background-position: center center;
@@ -48,12 +48,12 @@
             align-items: center;
             justify-content: center;
 
-            padding: 20px;
+            padding: 15px;
         }
 
 
         /* =====================================
-           PANNEAU BLANC
+           CARTE BLANCHE
         ===================================== */
 
         .login-box {
@@ -63,7 +63,7 @@
 
             border-radius: 8px;
 
-            padding: 20px 20px 22px;
+            padding: 18px 20px 20px;
 
             box-shadow:
                 0 5px 25px rgba(0, 0, 0, 0.16);
@@ -71,11 +71,11 @@
 
 
         /* =====================================
-           LOGO
+           LOGO ACS
         ===================================== */
 
         .logo {
-            height: 145px;
+            height: 180px;
 
             display: flex;
             align-items: center;
@@ -83,42 +83,31 @@
 
             border-bottom: 1px solid #dedede;
 
-            margin-bottom: 30px;
+            margin-bottom: 28px;
         }
 
-        /*
-         * Logo temporaire en texte.
-         *
-         * Si tu as le vrai logo ACS en PNG/SVG,
-         * il pourra être remplacé ici.
-         */
-
-        .logo-text {
-            color: #3446a5;
-
-            font-size: 31px;
-
-            font-weight: 700;
-
-            line-height: 0.92;
-
-            letter-spacing: -1.2px;
-
-            text-align: left;
-        }
-
-        .logo-text span {
+        .acs-logo {
             display: block;
+
+            width: 205px;
+            height: auto;
+
+            object-fit: contain;
         }
 
 
         /* =====================================
-           CHAMPS
+           FORM GROUP
         ===================================== */
 
         .form-group {
-            margin-bottom: 23px;
+            margin-bottom: 22px;
         }
+
+
+        /* =====================================
+           LABEL + CHOOSE USER
+        ===================================== */
 
         .field-header {
             display: flex;
@@ -201,7 +190,7 @@
 
             height: 50px;
 
-            margin-top: 17px;
+            margin-top: 16px;
 
             border: none;
 
@@ -236,7 +225,7 @@
         ===================================== */
 
         .separator {
-            height: 45px;
+            height: 43px;
 
             display: flex;
 
@@ -301,23 +290,23 @@
         @media (max-width: 500px) {
 
             .page {
-                padding: 12px;
+                padding: 10px;
             }
 
             .login-box {
                 width: 100%;
 
-                padding: 18px 18px 20px;
+                padding: 15px 18px 18px;
             }
 
             .logo {
-                height: 135px;
+                height: 155px;
 
-                margin-bottom: 28px;
+                margin-bottom: 25px;
             }
 
-            .logo-text {
-                font-size: 28px;
+            .acs-logo {
+                width: 180px;
             }
 
             .field-header label {
@@ -327,6 +316,7 @@
             .choose-user {
                 font-size: 14px;
             }
+
         }
 
     </style>
@@ -341,18 +331,16 @@
 
 
             <!-- =================================
-                 LOGO
+                 LOGO ACS
             ================================== -->
 
             <div class="logo">
 
-                <div class="logo-text">
-
-                    <span>Atlas</span>
-                    <span>Cloud</span>
-                    <span>Services</span>
-
-                </div>
+                <img
+                    src="./acsc.png"
+                    alt="Atlas Cloud Services"
+                    class="acs-logo"
+                >
 
             </div>
 
@@ -442,7 +430,7 @@
 
 
             <!-- =================================
-                 AZURE — BOUTON DE SIMULATION
+                 AZURE
             ================================== -->
 
             <button
@@ -470,19 +458,14 @@
     <script>
 
         /*
-         * =========================================
-         * SIMULATION DE SENSIBILISATION
-         * =========================================
+         * Simulation de sensibilisation.
          *
          * Aucune donnée saisie n'est envoyée
-         * à un serveur et aucune donnée n'est
-         * enregistrée.
+         * ou enregistrée.
          */
-
 
         const loginForm =
             document.getElementById("loginForm");
-
 
         const azureButton =
             document.getElementById("azureButton");
@@ -507,9 +490,6 @@
 
         /*
          * Bouton Microsoft Azure
-         *
-         * Dans cette simulation, il ne lance
-         * aucune authentification réelle.
          */
 
         azureButton.addEventListener(
