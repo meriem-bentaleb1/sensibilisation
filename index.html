@@ -1,507 +1,528 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Atlas Cloud Services</title>
+    <title>Atlas Cloud Services</title>
 
-<style>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
 
-html,
-body {
-    width: 100%;
-    height: 100%;
-}
+        body {
+            min-height: 100vh;
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
-    background-image: url("./datacentre.jpg");
+            background-image:
+                url("./datacentre.jpg");
 
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
 
-    min-height: 100vh;
-}
 
+        /* =====================================
+           PAGE
+        ===================================== */
 
-/* =========================
-   PAGE
-========================= */
+        .page {
+            min-height: 100vh;
 
-.page {
-    min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            padding: 20px;
+        }
 
-    padding: 20px;
-}
 
+        /* =====================================
+           PANNEAU BLANC
+        ===================================== */
 
-/* =========================
-   CARTE
-========================= */
+        .login-box {
+            width: 400px;
 
-.login-box {
-    width: 398px;
-    min-height: 755px;
+            background: rgba(255, 255, 255, 0.98);
 
-    background: rgba(255, 255, 255, 0.98);
+            border-radius: 8px;
 
-    border-radius: 8px;
+            padding: 20px 20px 22px;
 
-    padding: 28px 22px;
+            box-shadow:
+                0 5px 25px rgba(0, 0, 0, 0.16);
+        }
 
-    box-shadow:
-        0 5px 25px rgba(0, 0, 0, 0.15);
-}
 
+        /* =====================================
+           LOGO
+        ===================================== */
 
-/* =========================
-   LOGO
-========================= */
+        .logo {
+            height: 145px;
 
-.logo {
-    height: 175px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            border-bottom: 1px solid #dedede;
 
-    border-bottom: 1px solid #dedede;
+            margin-bottom: 30px;
+        }
 
-    margin-bottom: 68px;
-}
+        /*
+         * Logo temporaire en texte.
+         *
+         * Si tu as le vrai logo ACS en PNG/SVG,
+         * il pourra être remplacé ici.
+         */
 
+        .logo-text {
+            color: #3446a5;
 
-/*
-   Logo texte.
-   Si tu possèdes le fichier du vrai logo,
-   remplace cette partie par une <img>.
-*/
+            font-size: 31px;
 
-.logo-text {
-    text-align: left;
+            font-weight: 700;
 
-    color: #3446a5;
+            line-height: 0.92;
 
-    font-weight: 700;
+            letter-spacing: -1.2px;
 
-    line-height: 0.92;
+            text-align: left;
+        }
 
-    font-size: 31px;
+        .logo-text span {
+            display: block;
+        }
 
-    letter-spacing: -1.2px;
-}
 
-.logo-text .atlas {
-    display: block;
-}
+        /* =====================================
+           CHAMPS
+        ===================================== */
 
-.logo-text .cloud {
-    display: block;
-}
+        .form-group {
+            margin-bottom: 23px;
+        }
 
-.logo-text .services {
-    display: block;
-}
+        .field-header {
+            display: flex;
 
+            align-items: center;
+            justify-content: space-between;
 
-/* =========================
-   CHAMPS
-========================= */
+            margin-bottom: 12px;
+        }
 
-.form-group {
-    margin-bottom: 23px;
-}
+        .field-header label {
+            color: #171717;
 
-.field-header {
-    display: flex;
+            font-size: 19px;
 
-    justify-content: space-between;
-    align-items: center;
+            font-weight: 400;
+        }
 
-    margin-bottom: 13px;
-}
+        .choose-user {
+            color: #6515d5;
 
-.field-header label {
-    font-size: 20px;
+            font-size: 16px;
 
-    color: #171717;
+            text-decoration: none;
 
-    font-weight: 400;
-}
+            cursor: pointer;
+        }
 
-.choose-user {
-    color: #6515d5;
+        .choose-user:hover {
+            text-decoration: underline;
+        }
 
-    font-size: 16px;
 
-    text-decoration: none;
+        /* =====================================
+           INPUTS
+        ===================================== */
 
-    cursor: pointer;
-}
+        .form-group input {
+            width: 100%;
 
-.choose-user:hover {
-    text-decoration: underline;
-}
+            height: 50px;
 
+            padding: 0 16px;
 
-.form-group input {
-    width: 100%;
+            border: 1px solid #d9d9d9;
 
-    height: 50px;
+            border-radius: 8px;
 
-    border: 1px solid #d9d9d9;
+            background: #ffffff;
 
-    border-radius: 8px;
+            color: #333333;
 
-    padding: 0 16px;
+            font-size: 18px;
 
-    background: #ffffff;
+            outline: none;
 
-    color: #333;
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
 
-    font-size: 18px;
+        .form-group input::placeholder {
+            color: #999999;
+        }
 
-    outline: none;
-}
+        .form-group input:focus {
+            border-color: #a064ed;
 
-.form-group input::placeholder {
-    color: #999;
-}
+            box-shadow:
+                0 0 0 2px rgba(160, 100, 237, 0.12);
+        }
 
-.form-group input:focus {
-    border-color: #a066ed;
 
-    box-shadow:
-        0 0 0 2px rgba(160, 102, 237, 0.12);
-}
+        /* =====================================
+           BOUTON LOG IN
+        ===================================== */
 
+        .login-button {
+            width: 100%;
 
-/* =========================
-   BOUTON LOG IN
-========================= */
+            height: 50px;
 
-.login-button {
-    width: 100%;
+            margin-top: 17px;
 
-    height: 50px;
+            border: none;
 
-    margin-top: 18px;
+            border-radius: 8px;
 
-    border: none;
+            background: #a064ed;
 
-    border-radius: 8px;
+            color: #ffffff;
 
-    background: #a064ed;
+            font-size: 19px;
 
-    color: #ffffff;
+            font-weight: 500;
 
-    font-size: 19px;
+            cursor: pointer;
 
-    font-weight: 500;
+            transition:
+                background 0.2s ease,
+                transform 0.1s ease;
+        }
 
-    cursor: pointer;
+        .login-button:hover {
+            background: #9253df;
+        }
 
-    transition:
-        background 0.2s ease,
-        transform 0.1s ease;
-}
+        .login-button:active {
+            transform: scale(0.99);
+        }
 
-.login-button:hover {
-    background: #9253df;
-}
 
-.login-button:active {
-    transform: scale(0.99);
-}
+        /* =====================================
+           SEPARATEUR
+        ===================================== */
 
+        .separator {
+            height: 45px;
 
-/* =========================
-   OR
-========================= */
+            display: flex;
 
-.separator {
-    height: 44px;
+            align-items: center;
+            justify-content: center;
 
-    display: flex;
+            color: #777777;
 
-    justify-content: center;
-    align-items: center;
+            font-size: 16px;
+        }
 
-    color: #777;
 
-    font-size: 16px;
-}
+        /* =====================================
+           MICROSOFT AZURE
+        ===================================== */
 
+        .azure-button {
+            width: 100%;
 
-/* =========================
-   AZURE
-========================= */
+            height: 55px;
 
-.azure-button {
-    width: 100%;
+            border: 1px solid #d9d9d9;
 
-    height: 55px;
+            border-radius: 8px;
 
-    border: 1px solid #d9d9d9;
+            background: #ffffff;
 
-    border-radius: 8px;
+            display: flex;
 
-    background: #ffffff;
+            align-items: center;
+            justify-content: center;
 
-    display: flex;
+            gap: 10px;
 
-    align-items: center;
+            color: #202020;
 
-    justify-content: center;
+            font-size: 18px;
 
-    gap: 10px;
+            cursor: pointer;
 
-    color: #202020;
+            transition:
+                background 0.2s ease;
+        }
 
-    font-size: 18px;
+        .azure-button:hover {
+            background: #fafafa;
+        }
 
-    cursor: pointer;
-}
+        .azure-icon {
+            color: #a064ed;
 
-.azure-button:hover {
-    background: #fafafa;
-}
+            font-size: 22px;
 
-.azure-icon {
-    color: #a064ed;
+            font-weight: bold;
+        }
 
-    font-size: 21px;
 
-    font-weight: bold;
-}
+        /* =====================================
+           MOBILE
+        ===================================== */
 
+        @media (max-width: 500px) {
 
-/* =========================
-   MESSAGE DE SIMULATION
-========================= */
+            .page {
+                padding: 12px;
+            }
 
-.training {
-    margin-top: 25px;
+            .login-box {
+                width: 100%;
 
-    text-align: center;
+                padding: 18px 18px 20px;
+            }
 
-    font-size: 11px;
+            .logo {
+                height: 135px;
 
-    color: #777;
-}
+                margin-bottom: 28px;
+            }
 
+            .logo-text {
+                font-size: 28px;
+            }
 
-/* =========================
-   MOBILE
-========================= */
+            .field-header label {
+                font-size: 18px;
+            }
 
-@media (max-width: 500px) {
+            .choose-user {
+                font-size: 14px;
+            }
+        }
 
-    .page {
-        padding: 10px;
-    }
-
-    .login-box {
-        width: 100%;
-
-        min-height: auto;
-
-        padding: 25px 20px;
-    }
-
-    .logo {
-        margin-bottom: 45px;
-    }
-
-}
-
-</style>
+    </style>
 </head>
 
 
 <body>
 
-<div class="page">
+    <div class="page">
 
-    <div class="login-box">
+        <div class="login-box">
 
 
-        <!-- LOGO -->
+            <!-- =================================
+                 LOGO
+            ================================== -->
 
-        <div class="logo">
+            <div class="logo">
 
-            <div class="logo-text">
+                <div class="logo-text">
 
-                <span class="atlas">
-                    Atlas
-                </span>
+                    <span>Atlas</span>
+                    <span>Cloud</span>
+                    <span>Services</span>
 
-                <span class="cloud">
-                    Cloud
-                </span>
-
-                <span class="services">
-                    Services
-                </span>
+                </div>
 
             </div>
 
-        </div>
+
+            <!-- =================================
+                 FORMULAIRE
+            ================================== -->
+
+            <form id="loginForm">
 
 
-        <!-- FORMULAIRE -->
+                <!-- EMAIL -->
 
-        <form id="loginForm">
+                <div class="form-group">
 
+                    <div class="field-header">
 
-            <!-- EMAIL -->
+                        <label for="email">
+                            Email
+                        </label>
 
-            <div class="form-group">
+                        <a
+                            href="#"
+                            class="choose-user"
+                            onclick="return false;"
+                        >
+                            Choose a user
+                        </a>
 
-                <div class="field-header">
+                    </div>
 
-                    <label for="email">
-                        Email
-                    </label>
-
-                    <a
-                        href="#"
-                        class="choose-user"
-                        onclick="return false;"
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        autocomplete="off"
+                        required
                     >
-                        Choose a user
-                    </a>
 
                 </div>
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    autocomplete="off"
-                    required
-                >
 
-            </div>
+                <!-- PASSWORD -->
 
+                <div class="form-group">
 
-            <!-- PASSWORD -->
+                    <div class="field-header">
 
-            <div class="form-group">
+                        <label for="password">
+                            Password
+                        </label>
 
-                <div class="field-header">
+                    </div>
 
-                    <label for="password">
-                        Password
-                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Password"
+                        autocomplete="off"
+                        required
+                    >
 
                 </div>
 
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    autocomplete="off"
-                    required
-                >
 
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+                    Log in
+                </button>
+
+            </form>
+
+
+            <!-- =================================
+                 SEPARATEUR
+            ================================== -->
+
+            <div class="separator">
+                - or -
             </div>
 
 
-            <!-- LOGIN -->
+            <!-- =================================
+                 AZURE — BOUTON DE SIMULATION
+            ================================== -->
 
             <button
-                type="submit"
-                class="login-button"
+                type="button"
+                class="azure-button"
+                id="azureButton"
             >
-                Log in
+
+                <span class="azure-icon">
+                    ↪
+                </span>
+
+                <span>
+                    Microsoft Azure
+                </span>
+
             </button>
 
-        </form>
 
-
-        <!-- SEPARATEUR -->
-
-        <div class="separator">
-            - or -
         </div>
-
-
-        <!-- AZURE VISUEL -->
-
-        <button
-            type="button"
-            class="azure-button"
-            id="azureButton"
-        >
-
-            <span class="azure-icon">
-                ↪
-            </span>
-
-            <span>
-                Microsoft Azure
-            </span>
-
-        </button>
-
-
-        <!-- SIMULATION -->
-
-        <div class="training">
-            Simulation de sensibilisation — aucune donnée
-            de connexion n'est transmise ou enregistrée.
-        </div>
-
 
     </div>
 
-</div>
+
+    <script>
+
+        /*
+         * =========================================
+         * SIMULATION DE SENSIBILISATION
+         * =========================================
+         *
+         * Aucune donnée saisie n'est envoyée
+         * à un serveur et aucune donnée n'est
+         * enregistrée.
+         */
 
 
-<script>
-
-/*
- * Simulation uniquement.
- * Les informations saisies ne sont jamais envoyées
- * à un serveur.
- */
-
-document
-    .getElementById("loginForm")
-    .addEventListener("submit", function(event) {
-
-        event.preventDefault();
-
-        window.location.href = "sensibilisation.html";
-
-    });
+        const loginForm =
+            document.getElementById("loginForm");
 
 
-document
-    .getElementById("azureButton")
-    .addEventListener("click", function() {
+        const azureButton =
+            document.getElementById("azureButton");
 
-        window.location.href = "sensibilisation.html";
 
-    });
+        /*
+         * Bouton Log in
+         */
 
-</script>
+        loginForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "sensibilisation.html";
+
+            }
+        );
+
+
+        /*
+         * Bouton Microsoft Azure
+         *
+         * Dans cette simulation, il ne lance
+         * aucune authentification réelle.
+         */
+
+        azureButton.addEventListener(
+            "click",
+            function() {
+
+                window.location.href =
+                    "sensibilisation.html";
+
+            }
+        );
+
+    </script>
 
 </body>
 </html>
