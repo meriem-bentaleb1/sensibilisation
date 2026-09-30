@@ -1,215 +1,127 @@
+```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Connexion - Atlas Cloud Services</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --violet: #a56cf2;
-    --violet-hover: #9358e6;
-    --violet-ring: rgba(165, 108, 242, .35);
-    --navy: #2b1d6e;
-    --text: #1f2430;
-    --muted: #6b7280;
-    --border: #d9dce3;
-    --link: #4a1fb8;
-  }
-  * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; }
-  body {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    color: var(--text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    /* Le fichier datacentre.jpg doit être dans le même dossier que ce fichier sur GitHub */
-    background-image: url("./datacentre.jpg?v=2");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  .card {
-    width: 100%;
-    max-width: 450px;
-    min-height: 857px;
-    max-height: none;
-    background: #fff;
-    border-radius: 8px;
-    padding: 24px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, .18);
-  }
-  @media (max-height: 900px) { .card { min-height: 0; padding-bottom: 72px; } }
+    <title>Atlas Cloud Services</title>
 
-  .brand {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ececf1;
-  }
-  .brand img, .brand svg { width: 240px; height: auto; display: block; }
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100%;
+        }
 
-  form { margin-top: 72px; }
+        body {
+            min-height: 100vh;
 
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 8px;
-  }
-  label { font-size: 20px; font-weight: 500; }
-  .choose { color: var(--link); font-size: 17px; text-decoration: none; }
-  .choose:hover { text-decoration: underline; }
+            background-image: url("./datacentre.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
 
-  .field { margin-bottom: 22px; }
-  input {
-    width: 100%;
-    height: 56px;
-    padding: 0 18px;
-    font: inherit;
-    font-size: 20px;
-    color: var(--text);
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    outline: none;
-    transition: border-color .15s, box-shadow .15s;
-  }
-  input::placeholder { color: #9ca3af; }
-  input:focus {
-    border-color: var(--violet);
-    box-shadow: 0 0 0 3px var(--violet-ring);
-  }
+            font-family: Arial, sans-serif;
+        }
 
-  .btn {
-    width: 100%;
-    height: 56px;
-    margin-top: 26px;
-    font: inherit;
-    font-size: 22px;
-    font-weight: 500;
-    color: #fff;
-    background: var(--violet);
-    border: 0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background .15s;
-  }
-  .btn:hover { background: var(--violet-hover); }
-  .btn:focus-visible { outline: 3px solid var(--violet-ring); outline-offset: 2px; }
+        .overlay {
+            min-height: 100vh;
 
-  .or { text-align: center; color: var(--muted); font-size: 18px; margin: 18px 0; }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-  .sso {
-    width: 100%;
-    height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font: inherit;
-    font-size: 22px;
-    color: var(--text);
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background .15s;
-  }
-  .sso:hover { background: #f7f7fa; }
-  .sso svg { width: 22px; height: 22px; color: var(--violet); }
+            background: rgba(0, 0, 0, 0.35);
+        }
 
-  .error {
-    display: none;
-    margin-top: 14px;
-    color: #b42318;
-    font-size: 15px;
-  }
-  .error.show { display: block; }
-</style>
+        .box {
+            width: 380px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f4e79;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            background: #1f4e79;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-  <main class="card">
-    <div class="brand">
-      <!-- Remplacez ce SVG par <img src="logo-acs.png" alt="Atlas Cloud Services"> -->
-      <svg viewBox="0 0 240 190" role="img" aria-label="Atlas Cloud Services">
-        <path d="M60 150 C10 140 8 85 45 72 C50 30 100 5 130 25 C165 10 205 40 200 80 C240 95 225 150 180 152"
-              fill="none" stroke="#c9cdf2" stroke-width="1.5"/>
-        <g stroke="#e3e5f7" stroke-width="1">
-          <line x1="95" y1="55" x2="135" y2="35"/><line x1="135" y1="35" x2="195" y2="50"/>
-          <line x1="95" y1="55" x2="60" y2="80"/><line x1="135" y1="35" x2="150" y2="100"/>
-          <line x1="150" y1="100" x2="200" y2="140"/>
-        </g>
-        <circle cx="95" cy="55" r="5" fill="#2ec4a6"/>
-        <circle cx="132" cy="38" r="4" fill="#4a3fc4"/>
-        <circle cx="70" cy="60" r="3.5" fill="#4a3fc4"/>
-        <circle cx="195" cy="50" r="4" fill="#2ec4a6"/>
-        <circle cx="128" cy="62" r="3" fill="#ef6c4a"/>
-        <circle cx="30" cy="110" r="3.5" fill="#2ec4a6"/>
-        <circle cx="196" cy="140" r="3" fill="#ef6c4a"/>
-        <circle cx="160" cy="98" r="4" fill="#4a3fc4"/>
-        <circle cx="145" cy="128" r="3" fill="#2ec4a6"/>
-        <g font-family="Inter, Arial, sans-serif" font-weight="700" fill="#2b1d6e">
-          <text x="58" y="105" font-size="30">Atlas</text>
-          <text x="48" y="135" font-size="34">Cloud</text>
-          <text x="48" y="168" font-size="34">Services</text>
-        </g>
-      </svg>
+
+    <div class="overlay">
+
+        <div class="box">
+
+            <h1>Atlas Cloud Services</h1>
+
+            <p>Connexion à votre espace</p>
+
+            <form>
+                <label for="username">Nom d'utilisateur</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Nom d'utilisateur"
+                >
+
+                <label for="password">Mot de passe</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Mot de passe"
+                >
+
+                <button type="submit">
+                    Se connecter
+                </button>
+            </form>
+
+        </div>
+
     </div>
 
-    <form id="login-form" novalidate>
-      <div class="field">
-        <div class="row">
-          <label for="email">Email</label>
-          <a href="#" class="choose">Choose a user</a>
-        </div>
-        <input id="email" name="email" type="email" placeholder="Email" autocomplete="username" autofocus required>
-      </div>
-
-      <div class="field">
-        <div class="row"><label for="password">Password</label></div>
-        <input id="password" name="password" type="password" placeholder="Password" autocomplete="current-password" required>
-      </div>
-
-      <button type="submit" class="btn">Log in</button>
-      <div class="error" id="error" role="alert">Renseignez votre email et votre mot de passe.</div>
-
-      <div class="or">- or -</div>
-
-      <button type="button" class="sso" id="azure">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M14 4h5a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-5"/>
-          <path d="M4 12h11"/><path d="M11 8l4 4-4 4" fill="currentColor"/>
-        </svg>
-        Microsoft Azure
-      </button>
-    </form>
-  </main>
-
-<script>
-  const form = document.getElementById('login-form');
-  const error = document.getElementById('error');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = form.email.value.trim();
-    const password = form.password.value;
-    if (!email || !password) { error.classList.add('show'); return; }
-    error.classList.remove('show');
-    // TODO : envoyer les identifiants à votre backend (POST /web/login)
-    console.log('Connexion demandée pour', email);
-  });
-
-  document.getElementById('azure').addEventListener('click', () => {
-    // TODO : rediriger vers votre endpoint OAuth / SSO Azure
-    console.log('Redirection vers Microsoft Azure');
-  });
-</script>
 </body>
 </html>
+```
