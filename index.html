@@ -5,122 +5,369 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Atlas Cloud Services</title>
+    <title>Connexion - Atlas Cloud Services</title>
 
     <style>
-        html,
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html,
+        body {
             width: 100%;
             min-height: 100%;
         }
 
         body {
             min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
 
-            background-image: url("./datacentre.jpg");
+            /* Background */
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.45)
+                ),
+                url("./datacentre.jpg");
+
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-
-            font-family: Arial, sans-serif;
         }
 
-        .overlay {
+        .page {
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 430px;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 12px;
+            padding: 40px 38px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.30);
+        }
+
+        /* Logo / Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 18px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            background: rgba(0, 0, 0, 0.35);
-        }
+            border-radius: 50%;
+            background: #1f4e79;
+            color: white;
 
-        .box {
-            width: 380px;
-            padding: 35px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        h1 {
-            text-align: center;
-            color: #1f4e79;
-            margin-bottom: 10px;
-        }
-
-        p {
-            text-align: center;
-            color: #666;
-        }
-
-        label {
-            display: block;
-            margin-top: 18px;
-            margin-bottom: 6px;
+            font-size: 25px;
             font-weight: bold;
         }
 
-        input {
-            width: 100%;
-            padding: 12px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+        .header h1 {
+            color: #1f4e79;
+            font-size: 26px;
+            margin-bottom: 8px;
         }
 
-        button {
+        .header p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+
+            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
             width: 100%;
-            margin-top: 22px;
-            padding: 13px;
+            height: 48px;
+
+            padding: 0 14px;
+
+            border: 1px solid #d0d0d0;
+            border-radius: 6px;
+
+            background: #fff;
+            color: #333;
+
+            font-size: 15px;
+            outline: none;
+
+            transition: 0.2s ease;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #1f4e79;
+            box-shadow: 0 0 0 2px rgba(31, 78, 121, 0.10);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-top: -5px;
+            margin-bottom: 22px;
+
+            font-size: 13px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #666;
+        }
+
+        .remember input {
+            width: 14px;
+            height: 14px;
+        }
+
+        .forgot {
+            color: #1f4e79;
+            text-decoration: none;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        /* Button */
+        .login-button {
+            width: 100%;
+            height: 48px;
+
             border: none;
             border-radius: 6px;
+
             background: #1f4e79;
             color: white;
-            font-size: 16px;
+
+            font-size: 15px;
+            font-weight: bold;
+
             cursor: pointer;
+
+            transition: background 0.2s ease;
+        }
+
+        .login-button:hover {
+            background: #163a5c;
+        }
+
+        /* Security message */
+        .security-message {
+            margin-top: 20px;
+            padding: 12px;
+
+            border-radius: 6px;
+            background: #f4f7fa;
+
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 25px;
+
+            text-align: center;
+            color: #777;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        /* Mobile */
+        @media (max-width: 500px) {
+
+            .page {
+                padding: 20px 15px;
+            }
+
+            .login-box {
+                padding: 30px 24px;
+            }
+
+            .header h1 {
+                font-size: 23px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="overlay">
+<div class="page">
 
-        <div class="box">
+    <div class="login-container">
 
-            <h1>Atlas Cloud Services</h1>
+        <div class="login-box">
 
-            <p>Connexion à votre espace</p>
+            <!-- Header -->
+            <div class="header">
 
-            <form>
-                <label for="username">Nom d'utilisateur</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="Nom d'utilisateur"
+                <div class="logo-circle">
+                    ACS
+                </div>
+
+                <h1>Atlas Cloud Services</h1>
+
+                <p>
+                    Connectez-vous à votre espace professionnel
+                </p>
+
+            </div>
+
+            <!-- Login form -->
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="username">
+                        Nom d'utilisateur
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Entrez votre nom d'utilisateur"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Mot de passe
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Entrez votre mot de passe"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="options">
+
+                    <label class="remember">
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
+                        <span>Se souvenir de moi</span>
+                    </label>
+
+                    <a
+                        href="#"
+                        class="forgot"
+                        onclick="return false;"
+                    >
+                        Mot de passe oublié ?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-button"
                 >
-
-                <label for="password">Mot de passe</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Mot de passe"
-                >
-
-                <button type="submit">
                     Se connecter
                 </button>
+
             </form>
+
+
+            <div class="security-message">
+                🔒 Connexion sécurisée
+            </div>
+
+
+            <div class="footer">
+                © 2026 Atlas Cloud Services<br>
+                Tous droits réservés.
+            </div>
 
         </div>
 
     </div>
+
+</div>
+
+
+<script>
+    /*
+     * Simulation de sensibilisation :
+     * aucune donnée de connexion n'est envoyée
+     * ni enregistrée.
+     */
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        /*
+         * Pour une campagne de sensibilisation,
+         * tu peux remplacer cette action par une
+         * page pédagogique interne.
+         */
+
+        window.location.href = "sensibilisation.html";
+    });
+</script>
 
 </body>
 </html>
