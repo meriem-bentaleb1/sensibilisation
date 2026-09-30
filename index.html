@@ -1,289 +1,336 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Atlas Cloud Services</title>
+<title>Atlas Cloud Services</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<style>
 
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        body {
-            min-height: 100vh;
-            font-family: Arial, Helvetica, sans-serif;
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
 
-            background-image:
-                linear-gradient(
-                    rgba(0, 0, 0, 0.08),
-                    rgba(0, 0, 0, 0.08)
-                ),
-                url("./datacentre.jpg");
+body {
+    font-family: Arial, Helvetica, sans-serif;
 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
+    background-image: url("./datacentre.jpg");
 
-        /* Centrage de la fenêtre */
-        .page {
-            min-height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    min-height: 100vh;
+}
 
-            padding: 30px 20px;
-        }
 
-        /* Carte principale */
-        .login-box {
-            width: 100%;
-            max-width: 400px;
+/* =========================
+   PAGE
+========================= */
 
-            background: rgba(255, 255, 255, 0.98);
+.page {
+    min-height: 100vh;
 
-            border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            padding: 28px 22px 30px;
+    padding: 20px;
+}
 
-            box-shadow:
-                0 8px 30px rgba(0, 0, 0, 0.18);
-        }
 
-        /* Logo */
-        .logo {
-            text-align: center;
+/* =========================
+   CARTE
+========================= */
 
-            padding-bottom: 20px;
-            margin-bottom: 22px;
+.login-box {
+    width: 398px;
+    min-height: 755px;
 
-            border-bottom: 1px solid #dedede;
-        }
+    background: rgba(255, 255, 255, 0.98);
 
-        .logo-title {
-            display: inline-block;
+    border-radius: 8px;
 
-            color: #3445a5;
+    padding: 28px 22px;
 
-            font-size: 30px;
-            font-weight: 700;
+    box-shadow:
+        0 5px 25px rgba(0, 0, 0, 0.15);
+}
 
-            line-height: 0.95;
 
-            text-align: left;
-        }
+/* =========================
+   LOGO
+========================= */
 
-        .logo-title span {
-            display: block;
-        }
+.logo {
+    height: 175px;
 
-        .logo-cloud {
-            font-size: 27px;
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .logo-services {
-            font-size: 27px;
-        }
+    border-bottom: 1px solid #dedede;
 
-        /* Ligne Email */
-        .field-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    margin-bottom: 68px;
+}
 
-            margin-bottom: 8px;
-        }
 
-        .field-header label {
-            color: #222;
+/*
+   Logo texte.
+   Si tu possèdes le fichier du vrai logo,
+   remplace cette partie par une <img>.
+*/
 
-            font-size: 16px;
-            font-weight: 400;
-        }
+.logo-text {
+    text-align: left;
 
-        .choose-user {
-            color: #5d19d6;
+    color: #3446a5;
 
-            font-size: 14px;
+    font-weight: 700;
 
-            text-decoration: none;
+    line-height: 0.92;
 
-            cursor: pointer;
-        }
+    font-size: 31px;
 
-        .choose-user:hover {
-            text-decoration: underline;
-        }
+    letter-spacing: -1.2px;
+}
 
-        /* Champs */
-        .form-group {
-            margin-bottom: 20px;
-        }
+.logo-text .atlas {
+    display: block;
+}
 
-        .form-group input {
-            width: 100%;
-            height: 50px;
+.logo-text .cloud {
+    display: block;
+}
 
-            padding: 0 15px;
+.logo-text .services {
+    display: block;
+}
 
-            border: 1px solid #d9d9d9;
-            border-radius: 8px;
 
-            background: #fff;
+/* =========================
+   CHAMPS
+========================= */
 
-            color: #333;
+.form-group {
+    margin-bottom: 23px;
+}
 
-            font-size: 16px;
+.field-header {
+    display: flex;
 
-            outline: none;
+    justify-content: space-between;
+    align-items: center;
 
-            transition: border-color 0.2s,
-                        box-shadow 0.2s;
-        }
+    margin-bottom: 13px;
+}
 
-        .form-group input::placeholder {
-            color: #999;
-        }
+.field-header label {
+    font-size: 20px;
 
-        .form-group input:focus {
-            border-color: #9b63ee;
+    color: #171717;
 
-            box-shadow:
-                0 0 0 2px rgba(155, 99, 238, 0.12);
-        }
+    font-weight: 400;
+}
 
-        /* Bouton Login */
-        .login-button {
-            width: 100%;
-            height: 50px;
+.choose-user {
+    color: #6515d5;
 
-            border: none;
-            border-radius: 8px;
+    font-size: 16px;
 
-            background: #a366ed;
+    text-decoration: none;
 
-            color: white;
+    cursor: pointer;
+}
 
-            font-size: 18px;
-            font-weight: 500;
+.choose-user:hover {
+    text-decoration: underline;
+}
 
-            cursor: pointer;
 
-            transition: background 0.2s;
-        }
+.form-group input {
+    width: 100%;
 
-        .login-button:hover {
-            background: #9255df;
-        }
+    height: 50px;
 
-        /* Séparateur */
-        .separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    border: 1px solid #d9d9d9;
 
-            margin: 17px 0;
+    border-radius: 8px;
 
-            color: #777;
+    padding: 0 16px;
 
-            font-size: 15px;
-        }
+    background: #ffffff;
 
-        /* Bouton Azure - purement visuel dans la simulation */
-        .azure-button {
-            width: 100%;
-            height: 56px;
+    color: #333;
 
-            border: 1px solid #dedede;
-            border-radius: 8px;
+    font-size: 18px;
 
-            background: #fff;
+    outline: none;
+}
 
-            color: #222;
+.form-group input::placeholder {
+    color: #999;
+}
 
-            font-size: 17px;
+.form-group input:focus {
+    border-color: #a066ed;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    box-shadow:
+        0 0 0 2px rgba(160, 102, 237, 0.12);
+}
 
-            gap: 10px;
 
-            cursor: pointer;
-        }
+/* =========================
+   BOUTON LOG IN
+========================= */
 
-        .azure-button:hover {
-            background: #fafafa;
-        }
+.login-button {
+    width: 100%;
 
-        .azure-icon {
-            width: 18px;
-            height: 18px;
+    height: 50px;
 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+    margin-top: 18px;
 
-            color: #8d52e8;
+    border: none;
 
-            font-size: 20px;
-            font-weight: bold;
-        }
+    border-radius: 8px;
 
-        /* Message de simulation */
-        .training-message {
-            margin-top: 22px;
+    background: #a064ed;
 
-            padding: 10px;
+    color: #ffffff;
 
-            border-radius: 6px;
+    font-size: 19px;
 
-            background: #f5f5f5;
+    font-weight: 500;
 
-            color: #777;
+    cursor: pointer;
 
-            text-align: center;
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
 
-            font-size: 11px;
-            line-height: 1.4;
-        }
+.login-button:hover {
+    background: #9253df;
+}
 
-        /* Mobile */
-        @media (max-width: 500px) {
+.login-button:active {
+    transform: scale(0.99);
+}
 
-            .page {
-                padding: 15px;
-            }
 
-            .login-box {
-                max-width: 100%;
+/* =========================
+   OR
+========================= */
 
-                padding: 25px 20px;
-            }
+.separator {
+    height: 44px;
 
-            .logo-title {
-                font-size: 26px;
-            }
+    display: flex;
 
-            .logo-cloud,
-            .logo-services {
-                font-size: 24px;
-            }
-        }
-    </style>
+    justify-content: center;
+    align-items: center;
+
+    color: #777;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   AZURE
+========================= */
+
+.azure-button {
+    width: 100%;
+
+    height: 55px;
+
+    border: 1px solid #d9d9d9;
+
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #202020;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.azure-button:hover {
+    background: #fafafa;
+}
+
+.azure-icon {
+    color: #a064ed;
+
+    font-size: 21px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   MESSAGE DE SIMULATION
+========================= */
+
+.training {
+    margin-top: 25px;
+
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #777;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .page {
+        padding: 10px;
+    }
+
+    .login-box {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 25px 20px;
+    }
+
+    .logo {
+        margin-bottom: 45px;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
@@ -291,20 +338,37 @@
 
     <div class="login-box">
 
-        <!-- Logo -->
+
+        <!-- LOGO -->
+
         <div class="logo">
-            <div class="logo-title">
-                <span>Atlas</span>
-                <span class="logo-cloud">Cloud</span>
-                <span class="logo-services">Services</span>
+
+            <div class="logo-text">
+
+                <span class="atlas">
+                    Atlas
+                </span>
+
+                <span class="cloud">
+                    Cloud
+                </span>
+
+                <span class="services">
+                    Services
+                </span>
+
             </div>
+
         </div>
 
 
-        <!-- Formulaire -->
+        <!-- FORMULAIRE -->
+
         <form id="loginForm">
 
-            <!-- Email -->
+
+            <!-- EMAIL -->
+
             <div class="form-group">
 
                 <div class="field-header">
@@ -335,7 +399,8 @@
             </div>
 
 
-            <!-- Password -->
+            <!-- PASSWORD -->
+
             <div class="form-group">
 
                 <div class="field-header">
@@ -358,7 +423,8 @@
             </div>
 
 
-            <!-- Login -->
+            <!-- LOGIN -->
+
             <button
                 type="submit"
                 class="login-button"
@@ -369,28 +435,39 @@
         </form>
 
 
-        <!-- Séparateur -->
+        <!-- SEPARATEUR -->
+
         <div class="separator">
             - or -
         </div>
 
 
-        <!-- Microsoft Azure -->
+        <!-- AZURE VISUEL -->
+
         <button
             type="button"
             class="azure-button"
             id="azureButton"
         >
-            <span class="azure-icon">↪</span>
-            <span>Microsoft Azure</span>
+
+            <span class="azure-icon">
+                ↪
+            </span>
+
+            <span>
+                Microsoft Azure
+            </span>
+
         </button>
 
 
-        <!-- Sensibilisation -->
-        <div class="training-message">
-            Simulation de sensibilisation — aucune donnée de connexion
-            n'est transmise ou enregistrée.
+        <!-- SIMULATION -->
+
+        <div class="training">
+            Simulation de sensibilisation — aucune donnée
+            de connexion n'est transmise ou enregistrée.
         </div>
+
 
     </div>
 
@@ -398,33 +475,32 @@
 
 
 <script>
-    /*
-     * Simulation uniquement.
-     * Aucune donnée saisie n'est envoyée à un serveur.
-     */
 
-    const loginForm = document.getElementById("loginForm");
-    const azureButton = document.getElementById("azureButton");
+/*
+ * Simulation uniquement.
+ * Les informations saisies ne sont jamais envoyées
+ * à un serveur.
+ */
 
-    loginForm.addEventListener("submit", function(event) {
+document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(event) {
 
         event.preventDefault();
 
-        /*
-         * Redirection vers la page pédagogique.
-         */
         window.location.href = "sensibilisation.html";
+
     });
 
 
-    azureButton.addEventListener("click", function() {
+document
+    .getElementById("azureButton")
+    .addEventListener("click", function() {
 
-        /*
-         * Le bouton Azure est uniquement décoratif
-         * dans cette simulation.
-         */
         window.location.href = "sensibilisation.html";
+
     });
+
 </script>
 
 </body>
