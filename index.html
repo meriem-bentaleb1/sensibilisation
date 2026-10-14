@@ -1,590 +1,271 @@
+```html
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Atlas Cloud Services</title>
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-
-        /* =========================
-           PAGE
-        ========================= */
-
-        html,
-        body {
-            width: 100%;
-            min-height: 100%;
-        }
-
-        body {
-            min-height: 100vh;
-
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-
-            /* BACKGROUND IMAGE */
-            background-image: url("./datacentre.jpg");
-
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-
-        /* =========================
-           CONTENEUR PRINCIPAL
-        ========================= */
-
-        .page {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-        }
-
-
-        /* =========================
-           CARTE LOGIN
-        ========================= */
-
-        .login-box {
-            width: 398px;
-            max-width: 100%;
-
-            background: rgba(255, 255, 255, 0.98);
-
-            border-radius: 8px;
-
-            padding: 28px 22px 30px;
-
-            box-shadow:
-                0 8px 30px rgba(0, 0, 0, 0.18);
-        }
-
-
-        /* =========================
-           LOGO
-        ========================= */
-
-        .logo {
-            height: 175px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-bottom: 1px solid #dedede;
-
-            margin-bottom: 35px;
-        }
-
-        .logo-title {
-            text-align: left;
-
-            color: #3446a5;
-
-            font-size: 31px;
-
-            font-weight: 700;
-
-            line-height: 0.92;
-
-            letter-spacing: -1.2px;
-        }
-
-        .logo-title span {
-            display: block;
-        }
-
-        .logo-cloud,
-        .logo-services {
-            font-size: 27px;
-        }
-
-
-        /* =========================
-           FORMULAIRE
-        ========================= */
-
-        .form-group {
-            margin-bottom: 23px;
-        }
-
-
-        /* =========================
-           LABEL
-        ========================= */
-
-        .field-header {
-            display: flex;
-
-            justify-content: space-between;
-            align-items: center;
-
-            margin-bottom: 13px;
-        }
-
-        .field-header label {
-            color: #171717;
-
-            font-size: 20px;
-
-            font-weight: 400;
-        }
-
-        .choose-user {
-            color: #6515d5;
-
-            font-size: 16px;
-
-            text-decoration: none;
-
-            cursor: pointer;
-        }
-
-        .choose-user:hover {
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           INPUTS
-        ========================= */
-
-        .form-group input {
-            width: 100%;
-
-            height: 50px;
-
-            padding: 0 16px;
-
-            border: 1px solid #d9d9d9;
-
-            border-radius: 8px;
-
-            background: #ffffff;
-
-            color: #333333;
-
-            font-size: 16px;
-
-            outline: none;
-
-            transition:
-                border-color 0.2s ease,
-                box-shadow 0.2s ease;
-        }
-
-        .form-group input::placeholder {
-            color: #999999;
-        }
-
-        .form-group input:focus {
-            border-color: #a066ed;
-
-            box-shadow:
-                0 0 0 2px rgba(160, 102, 237, 0.12);
-        }
-
-
-        /* =========================
-           BOUTON LOGIN
-        ========================= */
-
-        .login-button {
-            width: 100%;
-
-            height: 50px;
-
-            margin-top: 18px;
-
-            border: none;
-
-            border-radius: 8px;
-
-            background: #a064ed;
-
-            color: #ffffff;
-
-            font-size: 19px;
-
-            font-weight: 500;
-
-            cursor: pointer;
-
-            transition:
-                background 0.2s ease,
-                transform 0.1s ease;
-        }
-
-        .login-button:hover {
-            background: #9253df;
-        }
-
-        .login-button:active {
-            transform: scale(0.99);
-        }
-
-
-        /* =========================
-           OR
-        ========================= */
-
-        .separator {
-            height: 44px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            color: #777777;
-
-            font-size: 16px;
-        }
-
-
-        /* =========================
-           MICROSOFT AZURE
-        ========================= */
-
-        .azure-button {
-            width: 100%;
-
-            height: 55px;
-
-            border: 1px solid #d9d9d9;
-
-            border-radius: 8px;
-
-            background: #ffffff;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            gap: 10px;
-
-            color: #202020;
-
-            font-size: 18px;
-
-            cursor: pointer;
-
-            transition:
-                background 0.2s ease;
-        }
-
-        .azure-button:hover {
-            background: #fafafa;
-        }
-
-        .azure-icon {
-            color: #a064ed;
-
-            font-size: 21px;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           MESSAGE DE SIMULATION
-        ========================= */
-
-        .training {
-            margin-top: 22px;
-
-            text-align: center;
-
-            font-size: 11px;
-
-            line-height: 1.4;
-
-            color: #777777;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 500px) {
-
-            .page {
-                padding: 10px;
-            }
-
-            .login-box {
-                width: 100%;
-
-                padding: 25px 20px;
-            }
-
-            .logo {
-                height: 150px;
-
-                margin-bottom: 30px;
-            }
-
-            .logo-title {
-                font-size: 28px;
-            }
-
-            .logo-cloud,
-            .logo-services {
-                font-size: 25px;
-            }
-
-            .field-header label {
-                font-size: 18px;
-            }
-
-            .choose-user {
-                font-size: 14px;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Cloud Services – Log in</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #a46cf7;
+      --purple-link: #6a0dd1;
+      --text: #1f1f2b;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --logo-navy: #2b2a86;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: #3b74c4 url("atlascloudservices_cover.jpeg") center / cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      min-height: 100%;
+    }
+
+    .card {
+      background: #fff;
+      width: 300px;
+      max-width: 100%;
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand img,
+    .brand svg {
+      max-height: 120px;
+      max-width: 100%;
+      width: auto;
+      display: block;
+    }
+
+    form {
+      margin-top: 24px;
+    }
+
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .choose-user {
+      color: var(--purple-link);
+      font-size: 15px;
+      text-decoration: none;
+    }
+
+    .choose-user:hover {
+      text-decoration: underline;
+    }
+
+    .field {
+      margin-bottom: 22px;
+    }
+
+    .field:last-of-type {
+      margin-bottom: 28px;
+    }
+
+    input {
+      width: 100%;
+      height: 46px;
+      padding: 0 16px;
+      font: inherit;
+      font-size: 18px;
+      color: var(--text);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    input::placeholder {
+      color: #8b8f98;
+    }
+
+    input:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(164, 108, 247, .25);
+    }
+
+    .btn {
+      width: 100%;
+      height: 46px;
+      border-radius: 8px;
+      font: inherit;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-primary {
+      justify-content: center;
+      background: var(--purple);
+      color: #fff;
+      border: 0;
+      transition: filter .15s;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(.95);
+    }
+
+    .btn-primary:focus-visible,
+    .btn-provider:focus-visible {
+      outline: 3px solid rgba(164, 108, 247, .5);
+      outline-offset: 2px;
+    }
+
+    .or {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      font-style: italic;
+      margin: 12px 0 10px;
+    }
+
+    .btn-provider {
+      height: 50px;
+      gap: 12px;
+      padding: 0 22px;
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      font-size: 18px;
+      transition: background .15s;
+    }
+
+    .btn-provider:hover {
+      background: #faf8ff;
+    }
+
+    .btn-provider svg {
+      width: 20px;
+      height: 20px;
+      flex: none;
+      color: var(--purple);
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 24px 12px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-    <!-- =========================
-         PAGE
-    ========================= -->
+  <main class="card">
 
-    <div class="page">
-
-        <!-- =========================
-             CARTE LOGIN
-        ========================= -->
-
-        <div class="login-box">
-
-
-            <!-- =========================
-                 LOGO
-            ========================= -->
-
-            <div class="logo">
-
-                <div class="logo-title">
-
-                    <span>Atlas</span>
-
-                    <span class="logo-cloud">
-                        Cloud
-                    </span>
-
-                    <span class="logo-services">
-                        Services
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <!-- =========================
-                 FORMULAIRE
-            ========================= -->
-
-            <form id="loginForm">
-
-
-                <!-- EMAIL -->
-
-                <div class="form-group">
-
-                    <div class="field-header">
-
-                        <label for="email">
-                            Email
-                        </label>
-
-                        <a
-                            href="#"
-                            class="choose-user"
-                            onclick="return false;"
-                        >
-                            Choose a user
-                        </a>
-
-                    </div>
-
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                        autocomplete="off"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- PASSWORD -->
-
-                <div class="form-group">
-
-                    <div class="field-header">
-
-                        <label for="password">
-                            Password
-                        </label>
-
-                    </div>
-
-
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Password"
-                        autocomplete="off"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- LOGIN -->
-
-                <button
-                    type="submit"
-                    class="login-button"
-                >
-                    Log in
-                </button>
-
-            </form>
-
-
-            <!-- =========================
-                 SEPARATEUR
-            ========================= -->
-
-            <div class="separator">
-                - or -
-            </div>
-
-
-            <!-- =========================
-                 AZURE
-            ========================= -->
-
-            <button
-                type="button"
-                class="azure-button"
-                id="azureButton"
-            >
-
-                <span class="azure-icon">
-                    ↪
-                </span>
-
-                <span>
-                    Microsoft Azure
-                </span>
-
-            </button>
-
-
-            <!-- =========================
-                 MESSAGE
-            ========================= -->
-
-            <div class="training">
-
-                Simulation de sensibilisation —
-                aucune donnée de connexion
-                n'est transmise ou enregistrée.
-
-            </div>
-
-
-        </div>
-
+    <div class="brand">
+      <img src="ACSLOGO.png" alt="Atlas Cloud Services" />
     </div>
 
+    <form>
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
+      <div class="field">
+        <div class="label-row">
+          <label for="email">Email</label>
+        </div>
 
-    <script>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          autocomplete="email"
+        />
+      </div>
 
-        /*
-         * Simulation uniquement.
-         * Aucune donnée saisie n'est envoyée
-         * à un serveur.
-         */
+      <div class="field">
+        <div class="label-row">
+          <label for="password">Password</label>
+        </div>
 
-        const loginForm =
-            document.getElementById("loginForm");
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          autocomplete="current-password"
+        />
+      </div>
 
-        const azureButton =
-            document.getElementById("azureButton");
+      <!-- Log in button -->
+      <button
+        class="btn btn-primary"
+        type="button"
+        onclick="window.location.href='https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=token&client_id=12ba3a42-b647-48e3-ab79-ee9dc8dbd3b1&redirect_uri=https%3A%2F%2Facserp.atlascs.ma%2Fauth_oauth%2Fsignin&scope=openid+profile+email&state=%7B%22d%22%3A+%22atlascloudservicesbdd%22,+%22p%22%3A+4,+%22r%22%3A+%22https%253A%252F%252Facserp.atlascs.ma%252Fodoo%253F%22%7D'"
+      >
+        Log in
+      </button>
 
+      <p class="or">- or -</p>
 
-        /* =========================
-           LOGIN
-        ========================= */
+      <!-- Microsoft Azure button -->
+      <button
+        class="btn btn-provider"
+        type="button"
+        onclick="window.location.href='https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize?response_type=token&client_id=12ba3a42-b647-48e3-ab79-ee9dc8dbd3b1&redirect_uri=https%3A%2F%2Facserp.atlascs.ma%2Fauth_oauth%2Fsignin&scope=openid+profile+email&state=%7B%22d%22%3A+%22atlascloudservicesbdd%22,+%22p%22%3A+4,+%22r%22%3A+%22https%253A%252F%252Facserp.atlascs.ma%252Fodoo%253F%22%7D'"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M11 7 9.6 8.4 12.2 11H2v2h10.2l-2.6 2.6L11 17l5-5-5-5Zm9 12h-8v2h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-8v2h8v14Z" />
+        </svg>
 
-        loginForm.addEventListener(
-            "submit",
-            function(event) {
+        Microsoft Azure
+      </button>
 
-                event.preventDefault();
+    </form>
 
-                window.location.href =
-                    "sensibilisation.html";
-
-            }
-        );
-
-
-        /* =========================
-           AZURE
-        ========================= */
-
-        azureButton.addEventListener(
-            "click",
-            function() {
-
-                window.location.href =
-                    "sensibilisation.html";
-
-            }
-        );
-
-    </script>
+  </main>
 
 </body>
-
 </html>
